@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 
-export default defineConfig({
-  base: "./",
-});
+/** Production builds use repo subpath for GitHub Pages; local dev keeps relative base. */
+export default defineConfig(({ mode }) => ({
+  base: mode === "production" ? "/training-sherpa/" : "./",
+}));
